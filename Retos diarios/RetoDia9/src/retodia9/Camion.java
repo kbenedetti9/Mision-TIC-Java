@@ -1,4 +1,4 @@
-package retodia7;
+package retodia9;
 
 /**
  *
@@ -15,7 +15,20 @@ public class Camion {
     private int ejes;
     private String placa;
     private int[] posicionLocal = new int[3];
-    private int[] posicionInstantanea = new int[2];
+    private int[] posicionInstantanea = new int[3];
+
+    Camion(String marca, double capacidad, double kilometrajeInit, double kilometrajeFinal, int capacidadCombustible, double tasaCombusPorKm, int ejes, String placa, int[] posicionLocal, int[] posicionInstantanea) {
+        this.marca = marca;
+        this.capacidad = capacidad;
+        this.kilometrajeInit = kilometrajeInit;
+        this.kilometrajeFinal = kilometrajeFinal;
+        this.capacidadCombustible = capacidadCombustible;
+        this.tasaCombusPorKm = tasaCombusPorKm;
+        this.ejes = ejes;
+        this.placa = placa;
+        this.posicionLocal = posicionLocal;
+        this.posicionInstantanea = posicionInstantanea;
+    }
 
     public void setMarca(String marca) {
         this.marca = marca;
@@ -104,4 +117,5 @@ public class Camion {
                 + Math.pow(posicionInstantanea[2] - posicionLocal[2], 2));
         return result;
     }
+
 }
