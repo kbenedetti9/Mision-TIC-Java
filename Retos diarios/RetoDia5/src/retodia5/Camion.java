@@ -1,5 +1,11 @@
+package retodia5;
 
+/**
+ *
+ * @author Karen Benedetti M
+ */
 public class Camion {
+
     public String marca;
     public String modelo;
     public float peso;
@@ -16,4 +22,5 @@ public class Camion {
         System.out.println("Placa: " + placa);
 
     }
+
 }
