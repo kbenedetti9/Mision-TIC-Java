@@ -75,3 +75,4 @@ Para la distancia entre los camiones se tiene que calcular con base de la posici
 3. Mantener el orden, estructura y formato de la salida esperada.
 
 4. Redondear a una cifra significativa los resultados . Puedes usar String.format("%.1f",1.54) = 1.5 
+

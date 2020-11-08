@@ -1,8 +1,17 @@
+package retosemana2;
+
 import java.util.Scanner;
 
-public class MainReto2 {
-    public static void main(String[] args) {
+/**
+ *
+ * @author Karen Benedetti M
+ */
+public class RetoSemana2 {
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
         Scanner lector = new Scanner(System.in);
         String marca1 = lector.next();// input la marca primer camión
         double capacidad1 = lector.nextDouble(); // input capacidad primer camión
@@ -18,8 +27,8 @@ public class MainReto2 {
         int posicionInstantaneaX1 = lector.nextInt();// input Digite X primer camión
         int posicionInstantaneaY1 = lector.nextInt();// input Digite Y primer camión
         int posicionInstantaneaZ1 = lector.nextInt();// Digite Z primer camión
-        int posicionLocal1[] = { posicionLocalX1, posicionLocalY1, posicionLocalZ1 };
-        int posicionInstantanea1[] = { posicionInstantaneaX1, posicionInstantaneaY1, posicionInstantaneaZ1 };
+        int posicionLocal1[] = {posicionLocalX1, posicionLocalY1, posicionLocalZ1};
+        int posicionInstantanea1[] = {posicionInstantaneaX1, posicionInstantaneaY1, posicionInstantaneaZ1};
         Camion camion1 = new Camion(marca1, capacidad1, kilometrajeInit1, kilometrajeFinal1, capacidadCombustible1,
                 tasaCombusPorKm1, ejes1, placa1, posicionLocal1, posicionInstantanea1);
 
@@ -37,8 +46,8 @@ public class MainReto2 {
         int posicionInstantaneaX2 = lector.nextInt();
         int posicionInstantaneaY2 = lector.nextInt();
         int posicionInstantaneaZ2 = lector.nextInt();
-        int posicionLocal2[] = { posicionLocalX2, posicionLocalY2, posicionLocalZ2 };
-        int posicionInstantanea2[] = { posicionInstantaneaX2, posicionInstantaneaY2, posicionInstantaneaZ2 };
+        int posicionLocal2[] = {posicionLocalX2, posicionLocalY2, posicionLocalZ2};
+        int posicionInstantanea2[] = {posicionInstantaneaX2, posicionInstantaneaY2, posicionInstantaneaZ2};
         Camion camion2 = new Camion(marca2, capacidad2, kilometrajeInit2, kilometrajeFinal2, capacidadCombustible2,
                 tasaCombusPorKm2, ejes2, placa2, posicionLocal2, posicionInstantanea2);
 
@@ -69,5 +78,7 @@ public class MainReto2 {
         double difDistancia = camion1.distanciaCamionaBase(camion1.getPosicionInstantanea(),
                 camion2.getPosicionInstantanea());
         System.out.printf("La distancia entre los camiones es: " + "%.1f", difDistancia);
+
     }
+
 }

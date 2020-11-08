@@ -1,3 +1,5 @@
+package retosemana2;
+
 
 public class Camion {
     private String marca;
