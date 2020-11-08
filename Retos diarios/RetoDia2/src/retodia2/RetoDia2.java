@@ -1,10 +1,17 @@
+package retodia2;
 
 import java.util.Scanner;
 
+/**
+ *
+ * @author Karen Benedetti M
+ */
 public class RetoDia2 {
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
-
         Scanner lector = new Scanner(System.in);
         int ptoDistribucion;
         int cajasAsignadas = 0;
@@ -41,5 +48,4 @@ public class RetoDia2 {
 
         }
     }
-
 }
