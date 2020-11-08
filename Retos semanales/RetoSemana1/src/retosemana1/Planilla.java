@@ -1,6 +1,11 @@
+package retosemana1;
 
-public class Reto1 {
-
+/**
+ *
+ * @author Karen Benedetti M
+ */
+public class Planilla {
+    
     public void control(int[][] matrizasig, int[][] matrizreg) {
 
         int matrizResultado[][] = new int[20][3];
@@ -88,4 +93,5 @@ public class Reto1 {
             }
         }
     }
+    
 }
