@@ -1,10 +1,10 @@
-package retodia7;
+package retodia8;
 
 /**
  *
  * @author Karen Benedetti M
  */
-public class RetoDia7 {
+public class RetoDia8 {
 
     /**
      * @param args the command line arguments
@@ -12,5 +12,5 @@ public class RetoDia7 {
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+
 }
