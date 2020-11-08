@@ -1,6 +1,11 @@
-package RetoDia6.src;
+package retodia6;
 
+/**
+ *
+ * @author Karen Benedetti M
+ */
 public class Camion {
+
     public String marca;
     public String modelo;
     public float peso;
@@ -8,7 +13,7 @@ public class Camion {
     public int numEjes;
     public String placa;
 
-    public Camion(){
-        
+    public Camion() {
     }
+
 }

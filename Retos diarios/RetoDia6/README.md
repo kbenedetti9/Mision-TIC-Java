@@ -9,3 +9,4 @@ Recuerda la clase Camion que construiste para la sesión anterior. Ahora, crea u
 reto1("Scania", "R410", 30, 78, 6, "KNG678")
 
 *No debes imprimir valores en tu reto, el autotest validará que el objeto Camion este recibiendo los parámetros por medio del método reto1 e imprimirá un atributo aleatorio. *
+
