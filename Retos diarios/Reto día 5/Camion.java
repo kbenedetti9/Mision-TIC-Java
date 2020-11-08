@@ -1,4 +1,5 @@
-class Camion {
+
+public class Camion {
     public String marca;
     public String modelo;
     public float peso;
