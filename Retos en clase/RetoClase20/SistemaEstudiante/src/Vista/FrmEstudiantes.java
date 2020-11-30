@@ -5,18 +5,25 @@
  */
 package Vista;
 
+import Controlador.Conexion;
 import Controlador.EstudianteDAO;
 import Modelos.Estudiante;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
 
 /**
  *
  * @author Karen Benedetti M
  */
 public class FrmEstudiantes extends javax.swing.JFrame {
-    
+
     DefaultListModel modeloEstudiante = new DefaultListModel();
 
     /**
@@ -26,7 +33,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
         initComponents();
         crearModelo();
     }
-    
+
     private void crearModelo() {
         lstEstudiantes.setModel(modeloEstudiante);
     }
@@ -55,6 +62,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
         lstEstudiantes = new javax.swing.JList<>();
         btnGuardar = new javax.swing.JButton();
         btnListar = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -121,6 +129,15 @@ public class FrmEstudiantes extends javax.swing.JFrame {
         getContentPane().add(btnListar);
         btnListar.setBounds(200, 450, 93, 29);
 
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnConsultar);
+        btnConsultar.setBounds(310, 440, 110, 29);
+
         setBounds(0, 0, 570, 552);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -130,7 +147,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
         estudiante.setNombre(txtNombre.getText());
         estudiante.setGenero(rbFemenino.isSelected() ? "F" : "M");
         estudiante.setCiclo(cmbCiclo.getSelectedItem().toString());
-        
+
         if (EstudianteDAO.guardar(estudiante)) {
             JOptionPane.showMessageDialog(this, "Guardado con exito!");
         } else {
@@ -139,7 +156,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarActionPerformed
-        
+
         ArrayList<Estudiante> vectorEstudiante;
         vectorEstudiante = EstudianteDAO.listar();
         for (Estudiante estudianteRecorrido : vectorEstudiante) {
@@ -147,6 +164,41 @@ public class FrmEstudiantes extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnListarActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        Estudiante estudiante = new Estudiante();
+        Connection con = Conexion.conectar();
+        String sql = "SELECT * FROM estudiantes WHERE documento = ? ";
+        ResultSet rs;
+
+        try {
+            PreparedStatement prepararSentencia = con.prepareStatement(sql);
+            prepararSentencia.setInt(1, Integer.parseInt(txtDocumento.getText()));
+            rs = prepararSentencia.executeQuery();
+            if (rs.next()) {
+                estudiante.setNombre(rs.getString("nombre"));
+
+                txtNombre.setText(estudiante.getNombre());
+                if (estudiante.getGenero().equals("Femenino")) {
+                    rbFemenino.setSelected(true);
+                } else {
+                    rbMasculino.setSelected(true);
+                }
+                cmbCiclo.setSelectedItem(estudiante.getCiclo());
+                chkEstado.setSelected(estudiante.isEstado());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FrmEstudiantes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        if (con != null) {
+            try {
+                con.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(EstudianteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +237,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup btgGenero;
+    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnListar;
     private javax.swing.JCheckBox chkEstado;
