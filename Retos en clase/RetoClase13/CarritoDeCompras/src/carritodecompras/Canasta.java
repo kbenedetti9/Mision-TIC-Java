@@ -11,13 +11,16 @@ public class Canasta {
     private double total;
     private ArrayList<Producto> productosEnCanasta = new ArrayList<>();
 
+    public Canasta() {
+    }
+
     public double getTotal() {
         return total;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
-    }
+//    public void setTotal(double total) {
+//        this.total = total;
+//    }
 
     public boolean insertarProducto(Producto productoACanasta) {
         System.out.println("El producto ha sido agregado con exito!");
@@ -40,7 +43,14 @@ public class Canasta {
         int i = 0;
         System.out.println("Productos en la Canasta");
         for (Producto p : productosEnCanasta) {
-            System.out.println(i++ + " " + p.getNombre());
+            System.out.println(p.getNombre());
+        }
+    }
+
+    public void calcularTotal() {
+        int i = 0;
+        for (Producto p : productosEnCanasta) {
+            total += p.getPrecio();
         }
     }
 }
