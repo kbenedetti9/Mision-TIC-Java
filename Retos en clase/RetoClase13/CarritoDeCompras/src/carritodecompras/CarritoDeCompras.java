@@ -60,9 +60,10 @@ public class CarritoDeCompras {
             System.out.println(mensaje);
             do {
                 //MENU DE ACCIONES PARA CLIENTE
-                System.out.println("1. Agregar Producto al Carro");
-                System.out.println("2. Borrar Producto del Carro");
-                System.out.println("3. Mostrar Productos del Carro");
+                System.out.println("[PROCESO DE VENTA]");
+                System.out.println("1. Agregar Producto al Carrito");
+                System.out.println("2. Borrar Producto del Carrito");
+                System.out.println("3. Mostrar Productos del Carrito");
                 System.out.println("4. Pagar");
                 int opcion = lector.nextInt();
                 switch (opcion) {
@@ -79,6 +80,11 @@ public class CarritoDeCompras {
                         } while (opcionOtroProducto == 1);
                         break;
                     case 2:
+                        canasta.listarProductosEnCanasta();
+                        System.out.println("Digita el numero del producto que deseas eliminar");
+                        int numProductoAEliminar = lector.nextInt();
+                        canasta.borrarProducto(numProductoAEliminar);
+
                         break;
                     case 3:
                         canasta.listarProductosEnCanasta();

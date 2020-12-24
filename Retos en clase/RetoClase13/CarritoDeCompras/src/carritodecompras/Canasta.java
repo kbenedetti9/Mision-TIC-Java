@@ -41,8 +41,12 @@ public class Canasta {
     public void listarProductosEnCanasta() {
         int i = 0;
         System.out.println("Productos en la Canasta");
+
+        if (productosEnCanasta.isEmpty()) {
+            System.out.println("No hay productos en la canasta");
+        }
         for (Producto p : productosEnCanasta) {
-            System.out.println(p.getNombre());
+            System.out.println(i++ + " " + p.getNombre());
         }
     }
 
