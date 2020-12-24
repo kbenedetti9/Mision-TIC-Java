@@ -21,7 +21,6 @@ public class Canasta {
 //    public void setTotal(double total) {
 //        this.total = total;
 //    }
-
     public boolean insertarProducto(Producto productoACanasta) {
         System.out.println("El producto ha sido agregado con exito!");
         return productosEnCanasta.add(productoACanasta);
@@ -47,10 +46,12 @@ public class Canasta {
         }
     }
 
-    public void calcularTotal() {
+    public double calcularTotal() {
         int i = 0;
         for (Producto p : productosEnCanasta) {
             total += p.getPrecio();
         }
+        return total;
     }
+
 }

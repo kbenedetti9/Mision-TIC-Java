@@ -85,7 +85,19 @@ public class CarritoDeCompras {
                         break;
                     case 4:
                         canasta.calcularTotal();
-                        System.out.println("El total es de: "+canasta.getTotal());
+                        System.out.println("[MEDIOS DE PAGO]");
+                        System.out.println("[0]Efectivo [1]Tarjeta de credito");
+                        System.out.println("Digite el numero que corresponda medio de pago");
+                        int medioDePago = lector.nextInt();
+
+                        if (medioDePago == 1) {
+                            System.out.println("Ingrese el numero de cuotas");
+                            int numCuotas = lector.nextInt();
+                            nuevoCliente.pagar(medioDePago, nuevoCliente.getCanastaDeCliente(), numCuotas);
+                        } else {
+                            nuevoCliente.pagar(medioDePago, nuevoCliente.getCanastaDeCliente());
+                        }
+                        break;
                 }
 
                 //CERRAR PROCESO CON EL CLIENTE

@@ -34,16 +34,16 @@ public class Cliente extends Persona {
         return listaCliente;
     }
 
-    public void pagar(String medioDePago, double total) {
+    public void pagar(int medioDePago, Canasta canastaAPagar) {
         System.out.println("Resumen de pago");
-        System.out.println("Medio de pago: " + medioDePago);
-        System.out.println("Valor a pagar: " + total);
+        System.out.println("Medio de pago: Efectivo");
+        System.out.println("Valor a pagar: " + canastaAPagar.calcularTotal());
     }
 
-    public void pagar(String medioDePago, double total, int cuotas) {
+    public void pagar(int medioDePago, Canasta canastaAPagar, int cuotas) {
         System.out.println("Resumen de pago");
-        System.out.println("Medio de pago: " + medioDePago);
-        System.out.println("Valor a pagar: " + total);
+        System.out.println("Medio de pago: Tarjeta de credito");
+        System.out.println("Valor a pagar: " + canastaAPagar.calcularTotal());
         System.out.println("Numero de cuotas: " + cuotas);
 
     }
