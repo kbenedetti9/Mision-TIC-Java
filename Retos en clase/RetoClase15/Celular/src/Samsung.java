@@ -1,4 +1,8 @@
 
+/**
+ *
+ * @author Karen Benedetti M
+ */
 public class Samsung extends Telefono implements GPS, Camara {
 
     public Samsung(String marca, String modelo) {
