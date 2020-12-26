@@ -13,6 +13,11 @@ Se definen los  métodos set y get para la variable de instancia nombre
 
 Se definen el método imprimeInfoFigura
 */
+
+/**
+ *
+ * @author Karen Benedetti M
+ */
 import java.util.Scanner;
 
 public abstract class Figura{

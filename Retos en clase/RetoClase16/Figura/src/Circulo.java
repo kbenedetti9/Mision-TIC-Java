@@ -9,6 +9,11 @@ Circulo(String nombre, double radio) con paso de los parámetros.
 Se implemetan los métodos calcularArea y calcularPerimetro, abstractos en la SuperClase
 
  */
+
+/**
+ *
+ * @author Karen Benedetti M
+ */
 public class Circulo extends Figura {
     //Se definen la variable para calcular el area y el perimetro 
 
