@@ -12,6 +12,8 @@ import java.util.logging.Logger;
  * @author Karen Benedetti M
  */
 public class GestionarPagos {
+    
+    public final static String[] columnas = {"Id", "Empleado", "Valor", "Mes", "Año"};
 
     public static ArrayList<Object[]> ConsultarPagos() {
 
@@ -25,11 +27,12 @@ public class GestionarPagos {
             ResultSet result = stmt.executeQuery("select * from pagos");
             while (result.next()) {
                 long id = result.getInt("id");
+                long idEmpleado = result.getLong("id_empleado");
                 String valorPago = result.getString("valor_pago");
                 String mes = result.getString("mes");
                 String ano = result.getString("año");
-
-                Object[] pago = {id, valorPago, mes, ano};
+                Empleado empleado = Empleado.leerEmpleado(idEmpleado);
+                Object[] pago = {id, empleado, valorPago, mes, ano};
                 pagos.add(pago);
             }
             result.close();

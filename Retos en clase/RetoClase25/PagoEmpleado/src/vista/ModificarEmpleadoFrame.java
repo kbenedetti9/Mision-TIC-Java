@@ -9,7 +9,7 @@ import controlador.Controlador;
 
 /**
  *
- * @author marce
+ * @author Karen Benedetti M
  */
 public class ModificarEmpleadoFrame extends javax.swing.JFrame {
     
